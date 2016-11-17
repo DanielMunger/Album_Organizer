@@ -1,1 +1,17 @@
-
+<h1>Musik Keeper 3000</h1>
+@if (Model.Count == 0)
+{
+  <h3>Welcome to Musik Keeper 3000. Please add an album to your music collection.</h3>
+}
+@else
+{
+  <h3>Your albums:<h3>
+    <ul>
+      @foreach (var album in Model)
+      {
+        <li><a href="/album/@album.GetId()">@album.GetTitle by @Model.GetArtist()</a></li>
+      }
+    </ul>
+}
+<p><a href="/album/new">Add a new album to your collection</a></p>
+<p><a href="/artist_search_form">Search your Collection by Artist</a></p>

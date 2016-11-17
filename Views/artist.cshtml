@@ -1,0 +1,10 @@
+<h1>@Model.GetName()</h1>
+<h3>Albums by @Model.GetName()</h3>
+<ul>
+  @foreach(var album in Model.GetAll())
+  {
+    <li>@album.GetTitle()</li>
+  }
+</ul>
+<a href="/">See Your Collection</a>
+<a href="/album_new_form">Add Another Album</a>
