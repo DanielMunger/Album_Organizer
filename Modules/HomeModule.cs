@@ -39,6 +39,11 @@ namespace AlbumOrganizer
         List<Artist> artistContained = Artist.SearchArtists(searchedArtist);
         return View["search_results.cshtml", artistContained];
       };
+      Get["/album/{id}"] = parameters => {
+        Album album = Album.Find(parameters.id);
+        album.GetTitle();
+        return View["album.cshtml", album];
+      };
     }
   }
 }
