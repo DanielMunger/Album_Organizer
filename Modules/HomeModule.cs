@@ -34,11 +34,11 @@ namespace AlbumOrganizer
         List<Album> allAlbums = Album.GetAll();
         return View["index.cshtml", allAlbums];
       };
-      Get["/artist"] = _ = {
-        string searchedArtist = Request.Form["artist-name"];
-        List<Artist> artistContained = Artist.SearchArtist(searchedArtist);
-        return View["search_result.cshtml", artistContained];
-      }
+      Get["/artist"] = _ => {
+        string searchedArtist = Request.Query["artist-name"];
+        List<Artist> artistContained = Artist.SearchArtists(searchedArtist);
+        return View["search_results.cshtml", artistContained];
+      };
     }
   }
 }

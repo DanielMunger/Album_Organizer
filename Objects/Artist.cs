@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace AlbumOrganizer.Objects
@@ -32,6 +33,10 @@ namespace AlbumOrganizer.Objects
     {
       _albums.Add(newAlbum);
     }
+    public List<Album> GetAlbum()
+    {
+      return _albums;
+    }
     public static List<Artist> GetAll()
     {
       return _instances;
@@ -52,12 +57,15 @@ namespace AlbumOrganizer.Objects
       }
       return result;
     }
-    public static List<Artist> searchArtists(string searchArtistName)
+    public static List<Artist> SearchArtists(string searchArtistName)
     {
-      List<Artists> foundArtists = new List<Artist>{};
+      searchArtistName = searchArtistName.ToLower();
+
+      List<Artist> foundArtists = new List<Artist>{};
       foreach(Artist artist in _instances)
       {
-        artistName = artist.GetName();
+        string artistName = artist.GetName();
+        artistName = artistName.ToLower();
         if(artistName.Contains(searchArtistName))
         {
           foundArtists.Add(artist);
