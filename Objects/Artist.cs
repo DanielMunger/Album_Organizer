@@ -52,5 +52,18 @@ namespace AlbumOrganizer.Objects
       }
       return result;
     }
+    public static List<Artist> searchArtists(string searchArtistName)
+    {
+      List<Artists> foundArtists = new List<Artist>{};
+      foreach(Artist artist in _instances)
+      {
+        artistName = artist.GetName();
+        if(artistName.Contains(searchArtistName))
+        {
+          foundArtists.Add(artist);
+        }
+      }
+      return foundArtists;
+    }
   }
 }
