@@ -36,10 +36,21 @@ namespace AlbumOrganizer.Objects
     {
       return _instances;
     }
-    public static Artist Find(searchID)
+    public static Artist Find(int searchID)
     {
       return _instances[searchID - 1];
     }
-
+    public static List<int> ArtistExists(string searchArtistName)
+    {
+      List<int> result = new List<int>{};
+      foreach(Artist artist in _instances)
+      {
+        if (artist.GetName() == searchArtistName)
+        {
+          result.Add(artist._id);
+        }
+      }
+      return result;
+    }
   }
 }

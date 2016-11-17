@@ -37,11 +37,11 @@ namespace AlbumOrganizer.Objects
     {
       return _id;
     }
-    public static Album Find(searchID)
+    public static Album Find(int searchID)
     {
       return _instances[searchID-1];
     }
-    public static GetAll()
+    public static List<Album> GetAll()
     {
       return _instances;
     }
